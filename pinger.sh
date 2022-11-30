@@ -11,7 +11,7 @@ host=""
 ping="/bin/ping"	#ubuntu
 
 # no trailing slash
-out_dir="~/logs_pings"
+out_dir="${HOME}/logs_pings"
 
 
 # ------------------------------
