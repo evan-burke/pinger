@@ -4,8 +4,8 @@
 # 18000 = 5 hours
 default_pings=900
 
-ping_destination=""
-host=""
+#ping_destination=""
+#host=""
 
 #ping="/sbin/ping"	#mac os
 ping="/bin/ping"	#ubuntu
@@ -14,7 +14,25 @@ ping="/bin/ping"	#ubuntu
 out_dir="${HOME}/logs_pings"
 
 
-# ------------------------------
+# ----------------------------------
+# ----------------------------------
+
+
+cfgfile="${HOME}/.pinger/config.cfg"
+
+if [[ ! -f "$cfgfile" ]]; then
+  echo "config file does not exist: $cfgfile"
+  exit 1
+fi
+
+if [[ ! -f "$out_dir" ]]; then
+  echo "output dir does not seem to exist, creating it: $out_dir"
+  mkdir -p "$out_dir"
+fi
+
+cfg=$(cat "$cfgfile")
+ping_destination=$(echo "$cfg" | grep ^ping_destination | cut -d\= -f2)
+host=$(echo "$cfg" | grep ^host | cut -d\= -f2)
 
 
 if [[ ! -z "$1" ]]; then
