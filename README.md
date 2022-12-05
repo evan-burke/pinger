@@ -5,7 +5,11 @@ Quick and dirty telemetry logging for my flaky internet connection, based on `pi
 
 cron entry should look something like:
 
-`*/15 * * * * /bin/bash ${HOME}/pinglog.sh >> ${HOME}/logs_pings/cron.log 2>&1`
+```
+RUN_BY_CRON=1
+
+*/15 * * * * /bin/bash ${HOME}/pinglog.sh >> ${HOME}/logs_pings/cron.log 2>&1
+```
 
 ### Parsing output:
 ```
