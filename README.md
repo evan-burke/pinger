@@ -8,7 +8,7 @@ cron entry should look something like: (confirm script path)
 ```
 RUN_BY_CRON=1
 
-*/15 * * * * /bin/bash ${HOME}/git/pinger/pinglog.sh >> ${HOME}/logs_pings/cron.log 2>&1
+*/15 * * * * /bin/bash ${HOME}/git/pinger/pinger.sh >> ${HOME}/logs_pings/cron.log 2>&1
 ```
 
 ### Parsing output:
